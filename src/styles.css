@@ -1,0 +1,54 @@
+:root { color: #211a3d; background: radial-gradient(circle at top left, #ffe6f1, transparent 34%), linear-gradient(135deg, #f6f0ff 0%, #eef8ff 100%); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+.app-shell { max-width: 1280px; margin: 0 auto; padding: 28px 18px 40px; }
+.panel { background: rgba(255,255,255,.9); border: 1px solid rgba(82,39,166,.16); border-radius: 30px; box-shadow: 0 22px 55px rgba(82,39,166,.13); }
+.hero { display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: center; padding: 28px; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 5.6rem); line-height: .9; margin: 8px 0; color: #5227a6; }
+.hero-copy { max-width: 760px; font-size: 1.12rem; }
+.eyebrow, .section-kicker { color: #df3f83; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
+.hero-actions, .panel-title, .add-player { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.primary-action, .secondary-action, .players-panel button, .chat-panel button { border: 0; border-radius: 16px; padding: 12px 16px; font-weight: 900; }
+.primary-action, .chat-panel button { background: #5227a6; color: white; }
+.secondary-action, .players-panel button { background: #efe7ff; color: #5227a6; }
+.live-card { display: grid; gap: 8px; padding: 22px; border-radius: 24px; background: #211a3d; color: white; }
+.live-dot { width: 14px; height: 14px; border-radius: 999px; background: #39e58c; box-shadow: 0 0 0 8px rgba(57,229,140,.18); }
+.wizard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 14px; margin-bottom: 18px; }
+.step { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 20px; background: #f8f5ff; }
+.step span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #ded3ff; font-weight: 900; }
+.step.active { background: #fff0b8; }
+.controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 18px; margin-bottom: 22px; }
+label { display: grid; gap: 8px; font-weight: 850; }
+input, textarea { width: 100%; border: 2px solid #ded3ff; border-radius: 16px; padding: 12px 14px; background: white; color: #211a3d; outline: none; }
+input:focus, textarea:focus { border-color: #df3f83; box-shadow: 0 0 0 4px rgba(223,63,131,.12); }
+.dashboard { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 22px; }
+.board-panel, .caller-panel, .players-panel, .chat-panel, .customizer { padding: 22px; }
+.board-header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+h2 { color: #5227a6; margin: 4px 0 8px; }
+.hidden { display: none; }
+.bingo-badge { background: #23c483; color: #06281b; padding: 12px 18px; border-radius: 999px; font-weight: 950; animation: pop .75s ease infinite alternate; }
+.progress-wrap { display: grid; gap: 8px; margin: 14px 0 18px; font-weight: 850; }
+.progress-wrap div { height: 14px; background: #eee7ff; border-radius: 999px; overflow: hidden; }
+.progress-wrap i { display: block; height: 100%; width: 4%; border-radius: inherit; background: linear-gradient(90deg, #ffc857, #df3f83); transition: width .2s ease; }
+.bingo-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.bingo-board button { min-height: 106px; border: 0; border-radius: 20px; padding: 10px; background: #f0e9ff; color: #3b236f; font-weight: 900; transition: transform .15s, background .15s, box-shadow .15s; }
+.bingo-board button span, .bingo-board button small { display: block; }
+.bingo-board button small { margin-top: 8px; color: #7761a7; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+.bingo-board button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(82,39,166,.15); }
+.bingo-board button.marked { background: linear-gradient(135deg, #ffc857, #ff7aa8); color: #311200; }
+.bingo-board button.winner { outline: 4px solid #23c483; }
+.side-stack { display: grid; gap: 18px; align-content: start; }
+.caller-panel { background: linear-gradient(160deg, #5227a6, #df3f83); color: white; }
+.caller-panel h2, .caller-panel .section-kicker { color: white; }
+.player-list { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; max-height: 150px; overflow: auto; }
+.player-list button.active { background: #5227a6; color: white; }
+.messages { height: 230px; overflow: auto; background: #f4efff; border-radius: 20px; padding: 12px; margin-bottom: 12px; }
+.messages p { background: white; border-radius: 14px; padding: 10px 12px; margin: 0 0 8px; }
+.chat-panel form { display: grid; gap: 10px; }
+.customizer { margin-top: 22px; display: grid; grid-template-columns: 330px 1fr; gap: 20px; align-items: start; }
+.customizer textarea { min-height: 220px; }
+@keyframes pop { from { transform: scale(1); } to { transform: scale(1.05); } }
+@media (max-width: 980px) { .hero, .controls, .dashboard, .customizer { grid-template-columns: 1fr; } .wizard { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .app-shell { padding: 14px; } .hero, .board-panel, .caller-panel, .players-panel, .chat-panel, .customizer { padding: 16px; } .bingo-board { gap: 6px; } .bingo-board button { min-height: 78px; border-radius: 14px; font-size: .76rem; } }
