@@ -1,7 +1,80 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Bingo interactivo</title><link rel="stylesheet" href="/src/styles.css"/></head><body><main class="app-shell">
-<section class="hero"><div><p class="eyebrow">🎉 Bingo social interactivo</p><h1 id="roomTitle">Noche de Bingo</h1><p>Arma una sala para más de 10 personas: cada amigo escribe su nombre para recibir un cartón diferente y todos pueden usar el chat personalizado.</p></div><div class="status-card"><span class="big-icon">👥</span><strong>Capacidad recomendada</strong><span>10+ jugadores con cartones únicos por nombre</span></div></section>
-<section class="controls panel"><label>Sala<input id="roomInput" value="Noche de Bingo" /></label><label>Tu nombre<input id="playerInput" value="Jugador 1" /></label><label>Mensaje del anfitrión<input id="hostInput" value="¡Bienvenidos! Marquen una casilla cuando completen el reto." /></label></section>
-<section class="game-grid"><article class="panel board-panel"><div class="board-header"><div><h2 id="playerTitle">Cartón de Jugador 1</h2><p id="hostMessage">¡Bienvenidos! Marquen una casilla cuando completen el reto.</p></div><div id="bingoBadge" class="bingo-badge hidden">¡BINGO!</div></div><div id="board" class="bingo-board" aria-label="Cartón de bingo interactivo"></div></article>
-<aside class="panel chat-panel"><h2>💬 Chat personalizado</h2><div id="messages" class="messages"></div><form id="chatForm"><input id="chatName" aria-label="Nombre en chat" value="Jugador 1"/><textarea id="chatText" aria-label="Mensaje de chat" placeholder="Escribe un mensaje, regla o reto..."></textarea><button type="submit">Enviar al chat</button></form></aside></section>
-<section class="panel customizer"><h2>Personaliza los retos</h2><p>Escribe al menos 24 frases, una por línea. Cada jugador obtiene un orden distinto según su nombre.</p><textarea id="wordsInput"></textarea></section>
-</main><script type="module" src="/src/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase interactiva: presente simple</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero panel">
+        <div>
+          <p class="eyebrow">🚀 Inglés para niños</p>
+          <h1>Presente simple con he, she e it</h1>
+          <p>Una clase interactiva para un niño de 10 años: aprende la regla, practica con juegos cortos y crea tus propias oraciones en tercera persona.</p>
+        </div>
+        <div class="mission-card">
+          <span class="big-icon">⭐</span>
+          <strong>Misión</strong>
+          <span>Gana estrellas escribiendo el verbo correcto.</span>
+        </div>
+      </section>
+
+      <section class="panel lesson-section">
+        <p class="eyebrow">1. Mini explicación</p>
+        <h2>Cuando hablamos de he, she o it, el verbo cambia</h2>
+        <p>En presente simple agregamos una terminación al verbo. Mira estas tarjetas y repite los ejemplos en voz alta.</p>
+        <div id="ruleCards" class="rule-grid"></div>
+      </section>
+
+      <section class="activity-grid">
+        <article class="panel quiz-card">
+          <div class="quiz-header">
+            <div>
+              <p class="eyebrow">2. Juego rápido</p>
+              <h2>Completa la oración</h2>
+            </div>
+            <div class="score-pill"><span id="scoreText">0 estrellas</span> ⭐</div>
+          </div>
+          <div class="question-box">
+            <span id="questionEmoji" class="question-emoji">⚽</span>
+            <p id="progressText"></p>
+            <h3 id="questionText"></h3>
+            <p id="questionHelp" class="hint"></p>
+            <label>Tu respuesta
+              <input id="answerInput" autocomplete="off" placeholder="Escribe el verbo: plays, watches..." />
+            </label>
+            <div class="button-row">
+              <button id="checkAnswer" type="button">Revisar</button>
+              <button id="nextQuestion" type="button" class="secondary">Siguiente reto</button>
+            </div>
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+          </div>
+        </article>
+
+        <article id="sentenceBuilder" class="panel builder-card">
+          <p class="eyebrow">3. Crea una oración</p>
+          <h2>Constructor mágico</h2>
+          <p>Elige un sujeto, escribe un verbo base y agrega un final para ver una oración correcta.</p>
+          <label>Sujeto
+            <select id="builderSubject">
+              <option>She</option>
+              <option>He</option>
+              <option>It</option>
+            </select>
+          </label>
+          <label>Verbo base
+            <input id="builderVerb" value="play" />
+          </label>
+          <label>Complemento
+            <input id="builderComplement" value="with friends" />
+          </label>
+          <div class="sentence-output" id="builtSentence"></div>
+          <p class="teacher-tip">Tip para el adulto: pide al niño que dibuje la oración y luego la lea con voz de personaje.</p>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
