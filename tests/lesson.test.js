@@ -17,8 +17,16 @@ test('changes consonant plus y to ies', () => {
   assert.equal(getThirdPersonVerb('fly'), 'flies')
 })
 
-test('builds a third-person sentence', () => {
-  assert.equal(buildSentence('She', 'study', 'English'), 'She studies English.')
+test('handles the irregular third-person form of have', () => {
+  assert.equal(getThirdPersonVerb('have'), 'has')
+})
+
+test('builds a third-person sentence without double punctuation', () => {
+  assert.equal(buildSentence('She', 'study', 'English.'), 'She studies English.')
+})
+
+test('uses a safe verb fallback for empty builder input', () => {
+  assert.equal(buildSentence('It', '', 'today'), 'It does today.')
 })
 
 test('checks answers without case or space sensitivity', () => {

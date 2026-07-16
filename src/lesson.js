@@ -31,6 +31,15 @@ export const VERB_RULES = [
       { base: 'fly', thirdPerson: 'flies' },
     ],
   },
+  {
+    id: 'irregular',
+    title: 'Verbo especial',
+    ending: 'has',
+    hint: 'Have cambia de forma: have → has.',
+    examples: [
+      { base: 'have', thirdPerson: 'has' },
+    ],
+  },
 ]
 
 export const QUESTIONS = [
@@ -40,11 +49,13 @@ export const QUESTIONS = [
   { subject: 'She', base: 'study', answer: 'studies', sentence: 'She ___ English every day.', emoji: '📚' },
   { subject: 'He', base: 'go', answer: 'goes', sentence: 'He ___ to the park.', emoji: '🌳' },
   { subject: 'It', base: 'like', answer: 'likes', sentence: 'It ___ warm milk.', emoji: '🐱' },
+  { subject: 'He', base: 'have', answer: 'has', sentence: 'He ___ a blue backpack.', emoji: '🎒' },
 ]
 
 export function getThirdPersonVerb(verb) {
   const lowerVerb = verb.toLowerCase().trim()
   if (!lowerVerb) return ''
+  if (lowerVerb === 'have') return 'has'
   if (/[^aeiou]y$/.test(lowerVerb)) return `${lowerVerb.slice(0, -1)}ies`
   if (/(s|sh|ch|x|z|o)$/.test(lowerVerb)) return `${lowerVerb}es`
   return `${lowerVerb}s`
@@ -52,7 +63,9 @@ export function getThirdPersonVerb(verb) {
 
 export function buildSentence(subject, verb, complement = 'every day') {
   const cleanSubject = subject.trim() || 'She'
-  return `${cleanSubject} ${getThirdPersonVerb(verb)} ${complement}.`
+  const cleanVerb = getThirdPersonVerb(verb) || 'does'
+  const cleanComplement = complement.trim().replace(/[.!?]+$/, '') || 'every day'
+  return `${cleanSubject} ${cleanVerb} ${cleanComplement}.`
 }
 
 export function isCorrectAnswer(question, answer) {

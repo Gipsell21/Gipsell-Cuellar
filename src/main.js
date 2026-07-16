@@ -7,7 +7,7 @@ function renderRules() {
   $('#ruleCards').innerHTML = VERB_RULES.map((rule) => `
     <article class="rule-card">
       <h3>${rule.title}</h3>
-      <p class="ending">+${rule.ending}</p>
+      <p class="ending">${rule.id === 'irregular' ? '' : '+'}${rule.ending}</p>
       <p>${rule.hint}</p>
       <ul>${rule.examples.map((example) => `<li>${example.base} → <strong>${example.thirdPerson}</strong></li>`).join('')}</ul>
     </article>
@@ -34,7 +34,7 @@ function celebrate(text) {
   $('#feedback').className = 'feedback success'
 }
 
-$('#checkAnswer').addEventListener('click', () => {
+function checkCurrentAnswer() {
   if (state.answered) return
   const question = QUESTIONS[state.currentQuestion]
   const answer = $('#answerInput').value
@@ -49,6 +49,11 @@ $('#checkAnswer').addEventListener('click', () => {
     $('#feedback').textContent = `Casi. Recuerda: ${question.base} cambia a ${getThirdPersonVerb(question.base)} con he, she o it.`
     $('#feedback').className = 'feedback try-again'
   }
+}
+
+$('#checkAnswer').addEventListener('click', checkCurrentAnswer)
+$('#answerInput').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') checkCurrentAnswer()
 })
 
 $('#nextQuestion').addEventListener('click', () => {
@@ -56,13 +61,16 @@ $('#nextQuestion').addEventListener('click', () => {
   renderQuestion()
 })
 
-$('#sentenceBuilder').addEventListener('input', () => {
+function updateBuiltSentence() {
   const subject = $('#builderSubject').value
   const verb = $('#builderVerb').value
   const complement = $('#builderComplement').value.trim() || 'every day'
   $('#builtSentence').textContent = buildSentence(subject, verb, complement)
-})
+}
+
+$('#sentenceBuilder').addEventListener('input', updateBuiltSentence)
+$('#sentenceBuilder').addEventListener('change', updateBuiltSentence)
 
 renderRules()
 renderQuestion()
-$('#sentenceBuilder').dispatchEvent(new Event('input'))
+updateBuiltSentence()
