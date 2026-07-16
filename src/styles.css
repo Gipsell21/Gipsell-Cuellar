@@ -1,34 +1,37 @@
-:root { color: #1f2340; background: #f7f2ff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+:root { color: #17213a; background: linear-gradient(135deg, #fff7d6, #e8f3ff 45%, #f7e8ff); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
 * { box-sizing: border-box; }
 body { margin: 0; }
-button, input, textarea { font: inherit; }
+button, input, select { font: inherit; }
 .app-shell { max-width: 1180px; margin: 0 auto; padding: 32px 20px; }
-.hero { display: grid; grid-template-columns: 1fr 280px; gap: 24px; align-items: center; margin-bottom: 24px; }
-.hero h1 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: .9; margin: 10px 0; color: #5227a6; }
-.hero p { font-size: 1.1rem; max-width: 760px; }
-.eyebrow, .status-card, .chat-panel h2 { display: flex; gap: 10px; align-items: center; }
-.eyebrow { color: #e25b8b; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-.panel, .status-card { background: rgba(255,255,255,.86); border: 1px solid rgba(82,39,166,.18); border-radius: 28px; box-shadow: 0 18px 45px rgba(82,39,166,.12); }
-.status-card { flex-direction: column; padding: 24px; text-align: center; }
-.big-icon { font-size: 2.75rem; }
-.controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 18px; margin-bottom: 24px; }
-label { display: grid; gap: 8px; font-weight: 800; }
-input, textarea { width: 100%; border: 2px solid #ded3ff; border-radius: 16px; padding: 12px 14px; background: white; color: #1f2340; }
-.game-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; }
-.board-panel, .chat-panel, .customizer { padding: 24px; }
-.board-header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
-.board-header h2, .chat-panel h2, .customizer h2 { margin-top: 0; color: #5227a6; }
-.hidden { display: none; }
-.bingo-badge { background: #23c483; color: #06281b; padding: 12px 18px; border-radius: 999px; font-weight: 900; animation: pop .8s ease infinite alternate; }
-.bingo-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-.bingo-board button { min-height: 96px; border: 0; border-radius: 18px; padding: 10px; background: #efe7ff; color: #3b236f; font-weight: 800; cursor: pointer; transition: transform .15s, background .15s; }
-.bingo-board button:hover { transform: translateY(-2px); }
-.bingo-board button.marked { background: linear-gradient(135deg, #ffc857, #ff7aa8); color: #311200; text-decoration: line-through; }
-.messages { height: 310px; overflow: auto; background: #f4efff; border-radius: 20px; padding: 14px; margin-bottom: 14px; }
-.messages p { background: white; border-radius: 14px; padding: 10px 12px; }
-.chat-panel form { display: grid; gap: 10px; }
-.chat-panel button { border: 0; border-radius: 16px; padding: 13px 16px; background: #5227a6; color: white; font-weight: 900; cursor: pointer; }
-.customizer { margin-top: 24px; }
-.customizer textarea { min-height: 210px; }
-@keyframes pop { from { transform: scale(1); } to { transform: scale(1.05); } }
-@media (max-width: 880px) { .hero, .controls, .game-grid { grid-template-columns: 1fr; } .bingo-board button { min-height: 78px; font-size: .85rem; } }
+.panel { background: rgba(255,255,255,.9); border: 2px solid rgba(83, 105, 255, .16); border-radius: 30px; box-shadow: 0 18px 45px rgba(54, 73, 140, .13); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 24px; align-items: center; padding: 28px; margin-bottom: 24px; }
+.hero h1 { color: #3151d3; font-size: clamp(2.4rem, 6vw, 4.9rem); line-height: .94; margin: 8px 0 14px; }
+.hero p { font-size: 1.12rem; max-width: 780px; }
+.eyebrow { color: #f06b35; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.mission-card { display: grid; place-items: center; gap: 8px; min-height: 220px; padding: 24px; text-align: center; border-radius: 26px; background: #fff2b8; color: #5a3b00; }
+.big-icon, .question-emoji { font-size: 3.5rem; }
+.lesson-section, .quiz-card, .builder-card { padding: 24px; }
+h2, h3 { color: #3151d3; }
+.rule-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.rule-card { border-radius: 24px; padding: 18px; background: #f4f7ff; border: 2px dashed #9aabff; }
+.rule-card h3 { margin-top: 0; }
+.rule-card ul { margin: 0; padding-left: 20px; }
+.ending { display: inline-grid; place-items: center; min-width: 74px; min-height: 74px; margin: 0; border-radius: 22px; background: #ff7aa8; color: white; font-size: 2rem; font-weight: 1000; }
+.activity-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); gap: 24px; margin-top: 24px; }
+.quiz-header { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+.score-pill { border-radius: 999px; background: #e6ffbe; color: #315100; padding: 12px 16px; font-weight: 900; white-space: nowrap; }
+.question-box { background: #f7fbff; border-radius: 26px; padding: 22px; }
+.question-box h3 { font-size: 1.8rem; margin: 8px 0; }
+.hint, .teacher-tip { color: #546070; }
+label { display: grid; gap: 8px; margin-top: 14px; font-weight: 900; }
+input, select { width: 100%; border: 2px solid #cbd5ff; border-radius: 16px; padding: 13px 14px; background: white; color: #17213a; }
+.button-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+button { border: 0; border-radius: 16px; padding: 13px 18px; background: #3151d3; color: white; font-weight: 1000; cursor: pointer; transition: transform .15s, opacity .15s; }
+button:hover { transform: translateY(-2px); }
+button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+button.secondary { background: #7d3fd1; }
+.feedback { min-height: 30px; font-weight: 900; }
+.feedback.success { color: #168548; }
+.feedback.try-again { color: #c44919; }
+.sentence-output { margin-top: 18px; padding: 18px; border-radius: 22px; background: #17213a; color: white; font-size: 1.45rem; font-weight: 1000; }
+@media (max-width: 880px) { .hero, .rule-grid, .activity-grid { grid-template-columns: 1fr; } .mission-card { min-height: auto; } }
