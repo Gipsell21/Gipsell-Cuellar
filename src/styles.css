@@ -1,0 +1,34 @@
+:root { color: #1f2340; background: #f7f2ff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+.app-shell { max-width: 1180px; margin: 0 auto; padding: 32px 20px; }
+.hero { display: grid; grid-template-columns: 1fr 280px; gap: 24px; align-items: center; margin-bottom: 24px; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 5rem); line-height: .9; margin: 10px 0; color: #5227a6; }
+.hero p { font-size: 1.1rem; max-width: 760px; }
+.eyebrow, .status-card, .chat-panel h2 { display: flex; gap: 10px; align-items: center; }
+.eyebrow { color: #e25b8b; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+.panel, .status-card { background: rgba(255,255,255,.86); border: 1px solid rgba(82,39,166,.18); border-radius: 28px; box-shadow: 0 18px 45px rgba(82,39,166,.12); }
+.status-card { flex-direction: column; padding: 24px; text-align: center; }
+.big-icon { font-size: 2.75rem; }
+.controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 18px; margin-bottom: 24px; }
+label { display: grid; gap: 8px; font-weight: 800; }
+input, textarea { width: 100%; border: 2px solid #ded3ff; border-radius: 16px; padding: 12px 14px; background: white; color: #1f2340; }
+.game-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; }
+.board-panel, .chat-panel, .customizer { padding: 24px; }
+.board-header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.board-header h2, .chat-panel h2, .customizer h2 { margin-top: 0; color: #5227a6; }
+.hidden { display: none; }
+.bingo-badge { background: #23c483; color: #06281b; padding: 12px 18px; border-radius: 999px; font-weight: 900; animation: pop .8s ease infinite alternate; }
+.bingo-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.bingo-board button { min-height: 96px; border: 0; border-radius: 18px; padding: 10px; background: #efe7ff; color: #3b236f; font-weight: 800; cursor: pointer; transition: transform .15s, background .15s; }
+.bingo-board button:hover { transform: translateY(-2px); }
+.bingo-board button.marked { background: linear-gradient(135deg, #ffc857, #ff7aa8); color: #311200; text-decoration: line-through; }
+.messages { height: 310px; overflow: auto; background: #f4efff; border-radius: 20px; padding: 14px; margin-bottom: 14px; }
+.messages p { background: white; border-radius: 14px; padding: 10px 12px; }
+.chat-panel form { display: grid; gap: 10px; }
+.chat-panel button { border: 0; border-radius: 16px; padding: 13px 16px; background: #5227a6; color: white; font-weight: 900; cursor: pointer; }
+.customizer { margin-top: 24px; }
+.customizer textarea { min-height: 210px; }
+@keyframes pop { from { transform: scale(1); } to { transform: scale(1.05); } }
+@media (max-width: 880px) { .hero, .controls, .game-grid { grid-template-columns: 1fr; } .bingo-board button { min-height: 78px; font-size: .85rem; } }
