@@ -1,3 +1,5 @@
+export const SUBJECTS = ['he', 'she', 'it']
+
 export const VERB_RULES = [
   {
     id: 'general',
